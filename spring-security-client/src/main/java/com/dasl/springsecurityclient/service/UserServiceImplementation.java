@@ -22,9 +22,9 @@ public class UserServiceImplementation implements UserService{
     @Override
     public User registerUser(UserModel userModel) {
         User user = new User();
-        user.setEmail(user.getEmail());
-        user.setFirstName(user.getFirstName());
-        user.setLastName(user.getLastName());
+        user.setEmail(userModel.getEmail());
+        user.setFirstName(userModel.getFirstName());
+        user.setLastName(userModel.getLastName());
         user.setRole("USER");
         user.setPassword(passwordEncoder.encode(userModel.getPassword()));
 
