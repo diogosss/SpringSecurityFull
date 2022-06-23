@@ -1,0 +1,14 @@
+
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url:jdbc: postgresql://localhost:5432/user_registration
+    username: postgres
+    password: D1060SAmpz
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
