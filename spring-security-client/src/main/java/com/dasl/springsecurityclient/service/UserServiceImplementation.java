@@ -1,8 +1,10 @@
 package com.dasl.springsecurityclient.service;
 
 import com.dasl.springsecurityclient.entity.User;
+import com.dasl.springsecurityclient.entity.VerificationToken;
 import com.dasl.springsecurityclient.model.UserModel;
 import com.dasl.springsecurityclient.repository.UserReposity;
+import com.dasl.springsecurityclient.repository.VerificationTokenREpository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,8 @@ public class UserServiceImplementation implements UserService{
     private UserReposity userReposity;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private VerificationTokenREpository verificationTokenREpository;
 
     @Override
     public User registerUser(UserModel userModel) {
@@ -26,5 +30,12 @@ public class UserServiceImplementation implements UserService{
 
         userReposity.save(user);
         return user;
+    }
+
+    @Override
+    public void saveVerificationTokenForUser(String token, User user) {
+        VerificationToken verificationToken = new VerificationToken(user, token);
+
+        verificationTokenREpository.save(verificationToken);
     }
 }
