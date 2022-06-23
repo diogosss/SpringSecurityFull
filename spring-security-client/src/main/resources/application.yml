@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url:jdbc: postgresql://localhost:5432/user_registration
+    url: jdbc:postgresql://localhost:5432/user_registration
     username: postgres
     password: D1060SAmpz
     driver-class-name: org.postgresql.Driver

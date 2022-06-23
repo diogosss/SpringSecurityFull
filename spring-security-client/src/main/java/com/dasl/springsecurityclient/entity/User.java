@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name="users") //USer es alabra reservad aen postgresql
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
