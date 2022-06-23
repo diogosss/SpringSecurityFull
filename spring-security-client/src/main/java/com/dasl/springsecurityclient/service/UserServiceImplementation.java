@@ -26,7 +26,7 @@ public class UserServiceImplementation implements UserService{
         user.setFirstName(user.getFirstName());
         user.setLastName(user.getLastName());
         user.setRole("USER");
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(userModel.getPassword()));
 
         userReposity.save(user);
         return user;
