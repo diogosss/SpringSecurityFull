@@ -7,5 +7,5 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          #issuer-url: http://auth-server:9000
-          issuer-url: http://localhost:9000
+          #issuer-uri: http://auth-server:9000
+          issuer-uri: http://localhost:9000
