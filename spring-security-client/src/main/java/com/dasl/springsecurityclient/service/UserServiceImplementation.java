@@ -117,4 +117,9 @@ public class UserServiceImplementation implements UserService{
         user.setPassword(passwordEncoder.encode(newPassword));
         userReposity.save(user);
     }
+
+    @Override
+    public boolean checkIfValidOldPassword(User user, String oldPassword) {
+        return passwordEncoder.matches(oldPassword, user.getPassword());
+    }
 }
