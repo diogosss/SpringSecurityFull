@@ -6,9 +6,7 @@ import com.dasl.springsecurityclient.model.UserModel;
 import com.dasl.springsecurityclient.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,6 +27,16 @@ public class RegistrationController {
                 appicationUrl(request)
         ));
         return "Success";
+    }
+
+    @GetMapping("/verifyRegistration")
+    public String veryfyRegistration(@RequestParam("token") String token){
+        String result =  userService.validateVerificationToken(token);
+        if(result.equalsIgnoreCase("valid")){
+            return "User Verifyes Successfully";
+        }else {
+            return "Bad User";
+        }
     }
 
     private String appicationUrl(HttpServletRequest request) {
